@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="500" height="500" id="canvas1"></canvas>
+
+    <script>
+        var canvas1 = document.getElementById('canvas1');
+        var ctx = canvas1.getContext('2d');
+        var w = canvas1.width;
+        var h = canvas1.height;
+        var lastPointX, lastPointY;
+        var nowPointX,  nowPointY;
+
+        function init() {
+            ctx.fillStyle = '#ccc';
+            ctx.fillRect(0, 0, w, h);
+
+            var r = Math.random();
+
+            if(r > 0.5){
+                canvas1.style.backgroundImage = 'url(./01.gif)';
+            }else{
+                canvas1.style.backgroundImage = 'url(./02.gif)';
+            }
+            ctx.globalCompositeOperation = 'destination-out';
+            canvas1.addEventListener('mousedown', downFun, false);
+        }
+        init();
+        function downFun(e) {
+            lastPointX = e.clientX-canvas1.offsetLeft; // 算鼠标点击时园的中心点
+            lastPointY = e.clientY-canvas1.offsetTop;
+
+            canvas1.addEventListener('mousemove', moveFun, false);
+            document.addEventListener('mouseup', upFun, false); // 定义在document上是鼠标松开可以在原型上清除事件
+        }
+        function moveFun(e) {
+            nowPointX = e.clientX - canvas1.offsetLeft;
+            nowPointY = e.clientY - canvas1.offsetTop;
+
+            ctx.beginPath();
+            ctx.lineWidth = 40; // 圆的整体的宽度 40
+            ctx.lineCap = 'round'; // 设置线的样式 圆角
+
+            ctx.moveTo(lastPointX, lastPointY);
+            ctx.lineTo(nowPointX, nowPointY);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(nowPointX, nowPointY, 20, 0, Math.PI * 2); //20是半径长度 圆的半径*2 360度
+            ctx.closePath();
+            ctx.fill();
+
+            lastPointX = nowPointX;
+            lastPointY = nowPointY;
+        } 
+        function upFun() {
+            canvas1.removeEventListener('mousemove', moveFun, false);
+            document.removeEventListener('mouseup', upFun, false); // // 定义在document上是鼠标松开可以在原型上清除事件
+            clearAll();
+        }
+        function clearAll() { // 判断当刮除的面积大于70%时自动清除所以未刮除的面积
+            var d = ctx.getImageData(0, 0, w, h),
+                len = d.data.length,
+                c = 0;
+            for(var i = 0; i < len; i += 4) {
+                if(d.data[i] === 0) {
+                    c++;
+                }
+            }
+            if(c > len/4 * 0.7) {
+                ctx.clearRect(0, 0, w, h);
+            }
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

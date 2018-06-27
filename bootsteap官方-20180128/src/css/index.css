@@ -1,0 +1,105 @@
+*{
+     padding: 0;
+     margin: 0;
+    list-style: none;    
+}
+.mesthead {
+    padding: 60px 0 80px;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    /* 渐变 */
+    background: linear-gradient(45deg, #020031 0,#6d3353 100%)
+}
+@media screen and (width: 992px){
+
+}
+.mesthead-links a {
+    color: rgba(255, 255, 255, 0.5);
+}
+.mesthead-links a:hover {
+    color: #fff;
+}
+.bc-social{
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;    
+    background: #eee;
+}
+.bc-social .bc-social-buttons ul li {
+    display: inline-block;
+}
+.bc-social ul li a{
+    color: #888;
+}
+.bc-social-buttons ul>li+li::before {
+    content: '|';
+    color: #ccc;
+    padding: 0 10px;
+}
+.bc-social-buttons a:hover{
+    color: red;
+}
+.jumbotron h1{
+    font-size: 60px;
+    font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+
+    .jumbotron h1 {
+        font-size: 100px;
+    }
+}
+.container{
+    text-align: center;
+}
+
+.container .projects-header h2{
+    font-size: 30px;
+    padding-top: 30px;
+}
+@media screen and (min-width: 768px ){
+    .container .projects-header h2 {
+        font-size: 42px;                
+    }
+}
+.container .thumbnail {
+        max-width: 310px;
+        margin: 0 auto 30px;
+}
+.container .thumbnail .caption{
+    padding: 20px 0 20px;
+}
+.footer{
+    padding: 100px 0;
+}
+.footer .container .footer-top{
+    border-top: 1px solid #ddd;
+    border-bottom:1px solid #ddd; 
+    padding: 30px 0;
+    color: #888;
+}
+.footer .container .footer-top .col-sm-6 p a{
+    color: #888;
+}
+.footer .container .footer-top .about .col-xs-3 h4{
+    color: #563d7c;
+}
+.footer .container .footer-top .about .col-xs-3 ul li a{
+    color: #888;
+}
+.footer .container .footer-bottom{
+    color: #888;
+    padding: 0 15px 0 15px;
+}
+.footer .container .footer-bottom ul{
+    text-align: center;
+}
+.footer .container .footer-bottom ul li{
+    display: inline-block;
+}
+.footer .container .footer-bottom ul>li+li::before{
+    content: '|';
+    padding: 0 15px;
+}

@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: url('../img/bg.jpg');
+    background-size: 100% 100%;
+}
+
+.btn{
+    width: 170px;
+    height: 140px;
+    position: absolute;
+    left: 50px;
+    background-image: url('../img/startGame.png');
+    background-size: 100% 100%;
+    cursor: pointer;   /* 鼠标放上去变成手指 */
+}
+
+.box{
+    height: 500px;
+    width: 500px;
+    transform: perspective(800px) rotateX(45deg);
+    margin: 20px auto;
+    /* 在即将生成的block中right bottom 的边框由小格子拼接组成 所以这里生成 边框就只用生成 left top  这样总体区域就是内容区域加上一个边框的区域 */
+    border-left: 1px solid #B25F27; 
+    border-top: 1px solid #B25F27; 
+    box-shadow: 5px 5px 5px reba(0, 0, 0, 0.3);
+    display: none; 
+    /* box跟flagBox两个值最开始都是none 不显示 当我们点击开始游戏的时候吃会显示出来 */
+}
+
+.flagBox{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+    margin-left: -100px;
+    color: #333;
+    font-size: 20px;
+    font-weight: bolder;
+    display: bolder;
+    display: none;
+}
+
+.alertBox{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2); /* 因为谈窗 是一个遮罩层的=形式 加一个灰色的背景 好看一些 */
+}
+.alertImg{
+    width: 600px;
+    height: 400px;
+    /* background-image: url('../img/success.png');   */
+    /* 这里的图片是根据不同状态来引入的 */
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 20px;
+}
+.close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    background-image: url('../img/closeBtn.png');
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.block{
+    width: 49px;
+    height: 49px;
+    border-right: 1px solid #B25F27;
+    border-bottom: 1px solid #B25F27;
+    box-shadow: 0 0 4px #333 inset;
+    background-image: url('../img/cao.jpg');
+    float: left;
+}
+
+.show{
+    background-image: url('../img/dilei.jpg');
+    background-size: 100% 100%;
+}
+
+.num{ 
+    background: #ECD0A1;
+    font-size: 18px;
+    font-weight: hold;
+    line-height: 49px;
+    text-align: center;
+}
+
+.flag{
+    background-image: url('../img/hongqi.jpg');
+    background-size: 100% 100%;
+}
